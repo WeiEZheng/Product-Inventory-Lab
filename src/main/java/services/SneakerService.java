@@ -13,7 +13,7 @@ import java.io.*;
 import java.util.*;
 
 public class SneakerService extends Service<Sneaker> {
-    private int nextId = 1;
+    private static int nextId = 1;
 
 //    private List<Sneaker> inventory = new ArrayList<>();
     private Map<Integer, Sneaker> inventory = new HashMap<>();

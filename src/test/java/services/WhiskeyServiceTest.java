@@ -1,8 +1,11 @@
 package services;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import models.Whiskey;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
 
 class WhiskeyServiceTest {
     @Test
@@ -34,27 +37,27 @@ class WhiskeyServiceTest {
     }
     @Test
     void findTest(){
-        WhiskeyService whiskeyService = new WhiskeyService();
-        whiskeyService.create("1","",0,0.0,0,1);
-        whiskeyService.create("2","",0,0.0,0,1);
+        WhiskeyService whiskeyService0 = new WhiskeyService();
+        Whiskey whiskey = whiskeyService0.create("1","",0,0.0,0,1);
+        whiskeyService0.create("2","",0,0.0,0,1);
+        Assertions.assertEquals(whiskey,whiskeyService0.findWhiskey(whiskey.getId()));
     }
 
     @Test
     void findAllTest(){
-        WhiskeyService whiskeyService = new WhiskeyService();
-        whiskeyService.create("1","",0,0.0,0,1);
-        whiskeyService.create("2","",0,0.0,0,1);
-        Whiskey[] whiskies = whiskeyService.findAll();
+        WhiskeyService whiskeyService1 = new WhiskeyService();
+        whiskeyService1.create("1","",0,0.0,0,1);
+        whiskeyService1.create("2","",0,0.0,0,1);
+        Whiskey[] whiskies = whiskeyService1.findAll();
         Assertions.assertEquals(2,whiskies.length);
     }
 
     @Test
     void deleteTest(){
         WhiskeyService whiskeyService = new WhiskeyService();
-        whiskeyService.create("1","",0,0.0,0,1);
+        Whiskey whiskey = whiskeyService.create("1","",0,0.0,0,1);
         whiskeyService.create("2","",0,0.0,0,1);
+        Assertions.assertTrue(whiskeyService.delete(whiskey.getId()));
 
-        Assertions.assertTrue(whiskeyService.delete(2));
-        Assertions.assertFalse(whiskeyService.delete(3));
     }
 }

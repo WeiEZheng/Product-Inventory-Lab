@@ -4,7 +4,6 @@ import models.Sneaker;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class SneakerServiceTest {
     @Test
@@ -40,22 +39,11 @@ class SneakerServiceTest {
     }
 
     @Test
-    void findSneakerTest() {
-        SneakerService sneakerService0 = new SneakerService();
-        Sneaker testSneaker = sneakerService0.create("w", "",
-                "", 0, 1, 0);
-        Sneaker testSneaker2 = sneakerService0.create("testSneaker2", "3",
-                "3", 0, 1, 0);
-        String expectedName = sneakerService0.findSneaker(2).getName();
-        Assertions.assertEquals(expectedName, "testSneaker2");
-    }
-
-    @Test
     void findAll() {
         SneakerService sneakerService2 = new SneakerService();
-        Sneaker testSneaker = sneakerService2.create("w", "",
+        sneakerService2.create("w", "",
                 "", 0, 1, 0);
-        Sneaker testSneaker2 = sneakerService2.create("testSneaker2", "3",
+        sneakerService2.create("testSneaker2", "3",
                 "3", 0, 1, 0);
         Sneaker[] expectedArr = sneakerService2.findAll();
         Assertions.assertEquals(2,expectedArr.length);
@@ -66,8 +54,17 @@ class SneakerServiceTest {
         SneakerService sneakerService1 = new SneakerService();
         Sneaker testSneaker = sneakerService1.create("", "",
                 "", 0, 1, 0);
-        Sneaker testSneaker2 = sneakerService1.create("testSneaker2", "",
+        Assertions.assertTrue(sneakerService1.delete(testSneaker.getId()));
+    }
+
+    @Test
+    void findSneakerTest() {
+        SneakerService sneakerService0 = new SneakerService();
+        Sneaker testSneaker = sneakerService0.create("w", "",
                 "", 0, 1, 0);
-        Assertions.assertTrue(sneakerService1.delete(2));
+        sneakerService0.create("testSneaker2", "3",
+                "3", 0, 1, 0);
+        Sneaker actualSneaker = sneakerService0.findSneaker(testSneaker.getId());
+        Assertions.assertEquals(testSneaker, actualSneaker);
     }
 }

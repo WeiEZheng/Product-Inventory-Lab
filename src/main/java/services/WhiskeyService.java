@@ -12,7 +12,7 @@ import java.io.*;
 import java.util.*;
 
 public class WhiskeyService extends Service<Whiskey> {
-    private int nextId = 1;
+    private static int nextId = 1;
 //    private List<Whiskey> inventory = new ArrayList<>();
     private Map<Integer,Whiskey> inventory = new HashMap<>();
 
