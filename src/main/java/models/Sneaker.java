@@ -78,13 +78,13 @@ public class Sneaker {
     }
 
     public String toString() {
-        return String.format("{Product id: %d," +
-                "Product name: %s," +
-                "Product brand: %s,"+
-                "Product sport specification: %s," +
-                "Product size: %.2f,"+
-                "Product price: %.2f," +
-                "Product quantity: %d}",
+        return String.format("{Product id: %d," + '\n' +
+                "Product name: %s," + '\n' +
+                "Product brand: %s,"+ '\n' +
+                "Product sport specification: %s," + '\n' +
+                "Product size: %.2f,"+ '\n' +
+                "Product price: %.2f," + '\n' +
+                "Product quantity: %d}" + '\n',
                 getId(),getName(),getBrand(),getSport(),getSize(),getPrice(),getQty());
     }
 }
