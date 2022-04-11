@@ -78,13 +78,13 @@ public class Whiskey {
     }
 
     public String toString() {
-        return String.format("{Product id: %d," +
-                "Product name: %s," +
-                "Product brand: %s,"+
-                "Product Alcohol Concentration: %.2f," +
-                "Product size: %.2f,"+
-                "Product price: %.2f," +
-                "Product quantity: %d}",
+        return String.format("{Product id: %d," + '\n' +
+                "Product name: %s," + '\n' +
+                "Product brand: %s,"+ '\n' +
+                "Product Alcohol Concentration: %.2f," + '\n' +
+                "Product size: %.2f,"+ '\n' +
+                "Product price: %.2f," + '\n' +
+                "Product quantity: %d}" + '\n',
                 getId(),getName(),getBrand(),getAlcConcentration(),getSize(),getPrice(),getQty());
     }
 }
