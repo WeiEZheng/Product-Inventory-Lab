@@ -77,6 +77,12 @@ public class WhiskeyService extends Service<Whiskey> {
     public void loadData() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         this.inventory = objectMapper.readValue(new File("whiskey.json"), new TypeReference<Map<Integer, Whiskey>>(){});
+        Integer max = 0;
+        for (Integer s: inventory.keySet()){
+            if (max<inventory.get(s).getId())
+                max=inventory.get(s).getId();
+        }
+        nextId=max+1;
 //        String csvFile = "/Users/batman/Desktop/Sneaker.csv";
 //        String line = "";
 //        String csvSplitBy = ",";

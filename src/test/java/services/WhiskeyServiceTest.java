@@ -58,6 +58,5 @@ class WhiskeyServiceTest {
         Whiskey whiskey = whiskeyService.create("1","",0,0.0,0,1);
         whiskeyService.create("2","",0,0.0,0,1);
         Assertions.assertTrue(whiskeyService.delete(whiskey.getId()));
-
     }
 }

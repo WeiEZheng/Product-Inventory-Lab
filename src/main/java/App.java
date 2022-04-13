@@ -30,7 +30,6 @@ public class App {
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
-
         } catch (IOException e){
             e.printStackTrace();
         }
